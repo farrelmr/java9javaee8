@@ -1,10 +1,6 @@
-javaee8
+# Build
+mvn clean package && docker build -t com.javabullets.javaee8/javaee8 .
 
-Example project using Java 9 and JavaEE8
+# RUN
 
-Built from Adam Bein's JavaEE8 archetype quickstarter(http://www.adam-bien.com/roller/abien/entry/simplest_possible_java_ee_8) -
-
-mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=com.airhacks -DarchetypeArtifactId=javaee8-essentials-archetype -DarchetypeVersion=0.0.2 -DgroupId=com.javabullets.javaee8 -DartifactId=javaee8
-Compile
-
-mvn clean package
+docker rm -f javaee8 || true && docker run -d -p 8080:8080 -p 4848:4848 --name javaee8 com.javabullets.javaee8/javaee8 
